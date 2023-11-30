@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 5000;
 
 io.on("connection", (socket) => {
     console.log("connect")
+    socket.on("ChatRoom1", (data)=>{
+        io.emit("ChatRoom1", data)
+    })
 })
 
 server.listen(PORT, () => console.log(`server is running ${PORT}`))

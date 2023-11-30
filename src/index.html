@@ -6,7 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello</h1>
+    <div class="wrapper">
+        <div class="user-container">
+            대화명: <input type="text" id="nickname">
+        </div>
+        <div class="display-container">
+            <ul class="chatting-list"></ul>
+        </div>
+        <div class="input-container">
+            <input type="text" class="chatting-input">
+            <button class="send-button">전송</button>
+        </div>
+    </div>
+
+
+
     <script src="/socket.io/socket.io.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <script src="js/chat.js"></script>
