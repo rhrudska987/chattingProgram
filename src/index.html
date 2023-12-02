@@ -1,28 +1,68 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chatting</title>
+    <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
     <div class="wrapper">
         <div class="user-container">
-            대화명: <input type="text" id="nickname">
+            <label for="nickname">대화명</label>
+            <input type="text" id="nickname">
         </div>
         <div class="display-container">
-            <ul class="chatting-list"></ul>
+            <ul class="chatting-list">
+                
+            </ul>
         </div>
         <div class="input-container">
-            <input type="text" class="chatting-input">
-            <button class="send-button">전송</button>
+            <span>
+                <input type="text" class="chatting-input">
+                <button class="send-button">전송</button>
+            </span>
         </div>
     </div>
 
 
 
     <script src="/socket.io/socket.io.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="js/chat.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="chat-header">
+            <h3>Chat Room</h3>
+        </div>
+        <div class="user-container">
+            <label for="nickname">대화명</label>
+            <input type="text" id="nickname">
+        </div>
+        <div class="display-container">
+            <ul class="chatting-list">   
+            </ul>
+        </div>
+        <div class="input-container">
+            <span>
+                <input type="text" class="chatting-input">
+                <button class="send-button">전송</button>
+            </span>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
     <script src="js/chat.js"></script>
 </body>
 </html>
