@@ -9,7 +9,7 @@ const moment = require("moment")
 const io = socketIO(server);
 
 app.use(express.static(path.join(__dirname, "src")))               //__dirname은 프로젝트 폴더, path.join은 운영체제마다 /와\가 다르기에 사용
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 io.on("connection", (socket) => {
     console.log("connect")

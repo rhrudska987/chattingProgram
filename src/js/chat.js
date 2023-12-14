@@ -1,11 +1,26 @@
 "use strict"
 const socket = io();
 
-const nickname = document.querySelector("#nickname")
 const chatList = document.querySelector(".chatting-list")
 const chatInput = document.querySelector(".chatting-input")
 const sendButton = document.querySelector(".send-button")
 const displayContainer = document.querySelector(".display-container")
+
+function getSearchParams() {
+	let params = new URLSearchParams(window.location.search);
+	return params;
+}
+
+function getNicknameFromParams(){
+	const params = getSearchParams()
+	return params.get("nickname");
+}
+
+//수정
+function getProfileImageFromParams(){
+    const params = getSearchParams()
+    return params.get("profileImage");
+}
 
 chatInput.addEventListener("keypress", (event)=>{
     if(event.keyCode === 13) {
@@ -13,9 +28,10 @@ chatInput.addEventListener("keypress", (event)=>{
     }
 })
 
+
 function send() {
-    const param = {
-        name: nickname.value,
+	const param = {
+        name: getNicknameFromParams(),
         message: chatInput.value
     }
     socket.emit("ChatRoom1", param)
@@ -31,25 +47,40 @@ socket.on("ChatRoom1", (data) => {
     displayContainer.scrollTo(0, displayContainer.scrollHeight)
 })
 
-function LiModel(name, message, time) {
+
+
+function LiModel(name, message, time, profileImage) {
     this.name = name;
     this.message = message;
     this.time = time;
+    this.profileImage = profileImage;
 
     this.makeLi = ()=> {
-        const li = document.createElement("li");
-        li.classList.add(nickname.value === this.name ? "sent" : "received")
-        // https://play.google.com/store/apps/details?id=com.kaovx.tf1.golfaround&hl=en_US
-        // <img class="image" src="https://placeimg.com/50/50/any" alt="any">
-        const dom = `<span class="profile">
-        <span class="user">${this.name}</span>
-        <img class="image" src="https://play-lh.googleusercontent.com/vqOAck2RIZoJsOO6eOBwnXgPkwVW0IL7n3mqO-dqYvp2xJ5HH3AcuIp3ChI7FWQ7YX8=w480-h960-rw" alt="profile Image">
-        </span>
-        <span class="message">${this.message}</span>
-        <span class="time">${this.time}</span>`;
+	    const li = document.createElement("li");
+	    li.classList.add(getNicknameFromParams() === this.name ? "sent" : "received")
+        this.profileImage = getProfileImageFromParams()
+        const dom = `
+            <div>
+			<span class="profile">
+        		<span class="user">${this.name}</span>
+        		<img class="image"
+                    src = ${this.profileImage}
+		             alt="profileImage">
+        	</span>
+		        <span class="message">${this.message}</span>
+		        <span class="time">${this.time}</span>
+	        </div>`
         li.innerHTML = dom;
         chatList.appendChild(li)
     }
 }
+
+function addNicknameFromParams(){
+	const nickname = document.querySelector("#nickname")
+	nickname.innerHTML = getNicknameFromParams();
+	console.log("하이");
+}
+
+addNicknameFromParams();
 
 console.log(socket)

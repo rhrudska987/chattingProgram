@@ -1,68 +1,27 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Chatting</title>
-    <link rel="stylesheet" href="css/style2.css">
-</head>
-<body>
-    <div class="wrapper">
-        <div class="user-container">
-            <label for="nickname">대화명</label>
-            <input type="text" id="nickname">
-        </div>
-        <div class="display-container">
-            <ul class="chatting-list">
-                
-            </ul>
-        </div>
-        <div class="input-container">
-            <span>
-                <input type="text" class="chatting-input">
-                <button class="send-button">전송</button>
-            </span>
-        </div>
-    </div>
-
-
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/chat.js"></script>
-</body>
-</html> -->
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Chat</title>
-    <link rel="stylesheet" href="css/style2.css">
+    <title>Chat Page</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="chat-header">
-            <h3>Chat Room</h3>
-        </div>
-        <div class="user-container">
-            <label for="nickname">대화명</label>
-            <input type="text" id="nickname">
-        </div>
-        <div class="display-container">
-            <ul class="chatting-list">   
-            </ul>
-        </div>
-        <div class="input-container">
-            <span>
-                <input type="text" class="chatting-input">
-                <button class="send-button">전송</button>
-            </span>
-        </div>
-    </div>
+<form id="nicknameForm">
+    <label for="nickname">닉네임:</label>
+    <input type="text" id="nickname" name="nickname" required>
+    <!-- 수정 -->
+    <label for="profileImage">프로필 이미지 경로:</label>
+    <input type="text" id="profileImage" name="profileImage" required>
+    <input type="submit" value="입장">
+    <!-- 수정 -->
+</form>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/chat.js"></script>
+<script>
+	document.getElementById('nicknameForm').addEventListener('submit', function(event) {
+		event.preventDefault();
+		var nickname = document.getElementById('nickname').value;
+        //수정
+        var profileImage = document.getElementById('profileImage').value;
+		window.location.href = '/chat?nickname=' + nickname;
+	});
+</script>
 </body>
 </html>

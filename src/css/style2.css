@@ -59,7 +59,7 @@ html, body {
     padding: 0.5rem 1rem;
     margin-right: 0.5rem;
 }
-.send-button { 
+.send-button {
     background: #FEE500;
     border: none;
     border-radius: 1rem;
@@ -69,19 +69,66 @@ html, body {
     cursor: pointer;
 }
 .chatting-list li {
-    width: fit-content;
-    max-width: 60%;
-    padding: 0.5rem 1rem;
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     margin-bottom: 1rem;
-    background: #fff;
-    border-radius: 1rem;
 }
 .chatting-list li:last-child {
     margin-bottom: 0;
 }
+
+.chatting-list li.sent{
+    justify-content: flex-end;
+}
+
+.chatting-list li.received{
+    justify-content: flex-start;
+}
+
+.chatting-list li.sent > div > .profile{
+    display: none;
+}
+
+.chatting-list li.received > div > .profile{
+    position: absolute;
+    left: -55px;
+    transform: translateY(-50%);
+}
+
+.chatting-list li.received > div > .profile > .user{
+    position: absolute;
+    right: -26px;
+    top: 4px;
+}
+
+.chatting-list li > div > .time{
+    position: absolute;
+    bottom: 0px;
+}
+
+.chatting-list li.received > div > .time{
+    right: -48px;
+}
+
+.chatting-list li.sent > div > .time{
+    left: -48px;
+}
+
+.chatting-list li.sent > div{
+    background: #ffeb33;
+}
+
+.chatting-list li.received > div{
+    background: #fff;
+}
+
+.chatting-list li > div{
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
 .profile .user {
     font-size: 10px;
     margin-bottom: 0.3rem;
@@ -93,7 +140,6 @@ html, body {
     height: 50px;
 }
 .message {
-    margin-left: 0.5rem;
     font-size: 15px;
 }
 .time {
@@ -101,15 +147,7 @@ html, body {
     margin: 0 5px;
 }
 
-.sent {
-    flex-direction: row-reverse;
-    flex: right;
-}
 
-/* 보낸 메시지 */
-.sent .message {
-    background: #ffeb33;
-}
 .received .message {
     background: #fff;
 }
