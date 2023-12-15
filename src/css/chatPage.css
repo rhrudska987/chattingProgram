@@ -131,6 +131,7 @@ html, body {
 
 .profile .user {
     font-size: 10px;
+    margin-left: 1rem;
     margin-bottom: 0.3rem;
 }
 .profile .image {
@@ -146,7 +147,6 @@ html, body {
     font-size: 10px;
     margin: 0 5px;
 }
-
 
 .received .message {
     background: #fff;

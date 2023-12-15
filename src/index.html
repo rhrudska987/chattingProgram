@@ -2,16 +2,16 @@
 <html>
 <head>
     <title>Chat Page</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <form id="nicknameForm">
-    <label for="nickname">닉네임:</label>
-    <input type="text" id="nickname" name="nickname" required>
-    <!-- 수정 -->
-    <label for="profileImage">프로필 이미지 경로:</label>
+    <label for="nickname">닉네임</label>
+    <input type="text" id="nickname" name="nickname" maxlength="3" required>
+    <br>
+    <label for="profileImage">프로필 이미지 경로</label>
     <input type="text" id="profileImage" name="profileImage" required>
     <input type="submit" value="입장">
-    <!-- 수정 -->
 </form>
 
 <script>
@@ -20,7 +20,7 @@
 		var nickname = document.getElementById('nickname').value;
         //수정
         var profileImage = document.getElementById('profileImage').value;
-		window.location.href = '/chat?nickname=' + nickname;
+		window.location.href = '/chat?nickname=' + nickname + '&profileImage=' + profileImage;
 	});
 </script>
 </body>

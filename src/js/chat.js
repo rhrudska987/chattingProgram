@@ -25,6 +25,7 @@ function getProfileImageFromParams(){
 chatInput.addEventListener("keypress", (event)=>{
     if(event.keyCode === 13) {
         send()
+        chatInput.value = ''
     }
 })
 
